@@ -770,8 +770,8 @@ pub async fn generate_commit_message(
 
     // 根据是否是 amend 模式选择不同的 diff
     let diff = if amend {
-        println!("正在分析上一次提交的更改内容...");
-        git::get_last_commit_diff()?
+        println!("正在分析当前暂存的修改内容...");
+        get_staged_diff()?
     } else {
         get_staged_diff()?
     };
